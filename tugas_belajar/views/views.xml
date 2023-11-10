@@ -1,0 +1,141 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <!-- PROJECT LIST VIEW -->
+    <record model="ir.ui.view" id="tugas_belajar.project_list">
+      <field name="name">tugas_belajar project list</field>
+      <field name="model">tugas_belajar.tugas_belajar_project</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="teknologi"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- KARYAWAN LIST VIEW -->
+    <record model="ir.ui.view" id="tugas_belajar.karyawan_list">
+      <field name="name">tugas_belajar karyawan list</field>
+      <field name="model">tugas_belajar.tugas_belajar_karyawan</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="jabatan"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- PROJECT FORM VIEW -->
+    <record model="ir.ui.view" id="tugas_belajar.project_form">
+      <field name="name">Form Project</field>
+      <field name="model">tugas_belajar.tugas_belajar_project</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+              <group>
+                <group>
+                  <field name="name"/>
+                  <field name="tipe_project"/>
+                </group>
+                <group>
+                  <field name="teknologi"/>
+                </group>
+              </group>
+            </sheet>
+          </form>
+      </field>
+    </record>
+
+    <!-- KARYAWAN FORM VIEW -->
+    <record model="ir.ui.view" id="tugas_belajar.karyawan_form">
+      <field name="name">Form Karyawan</field>
+      <field name="model">tugas_belajar.tugas_belajar_karyawan</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+              <group>
+                <group>
+                  <field name="name"/>
+                  <field name="jabatan"/>
+                  <field name="manager"/>
+                </group>
+                <group>
+                  <field name="jenis_kelamin"/>
+                  <field name="tanggal_lahir"/>
+                  <field name="project" widget="many2many_tags"/>
+                </group>
+              </group>
+            </sheet>
+          </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <!-- PROJECT VIEW ACTIONS -->
+    <record model="ir.actions.act_window" id="tugas_belajar.project_action_window">
+      <field name="name">Project</field>
+      <field name="res_model">tugas_belajar.tugas_belajar_project</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- KARYAWAN VIEW ACTIONS -->
+    <record model="ir.actions.act_window" id="tugas_belajar.karyawan_action_window">
+      <field name="name">Karyawan</field>
+      <field name="res_model">tugas_belajar.tugas_belajar_karyawan</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+    <!-- PROJECT SERVER ACTIONS -->
+    <record model="ir.actions.server" id="tugas_belajar.project_action_server">
+      <field name="name">tugas_belajar project server</field>
+      <field name="model_id" ref="model_tugas_belajar_tugas_belajar_project"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+
+    <!-- KARYAWAN SERVER ACTIONS -->
+    <record model="ir.actions.server" id="tugas_belajar.karyawan_action_server">
+      <field name="name">tugas_belajar karyawan server</field>
+      <field name="model_id" ref="model_tugas_belajar_tugas_belajar_karyawan"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="Appschef" id="tugas_belajar.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Master" id="tugas_belajar.tugas_belajar" parent="tugas_belajar.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="Project" id="tugas_belajar.project" parent="tugas_belajar.tugas_belajar"
+              action="tugas_belajar.project_action_window"/>
+
+    <menuitem name="Karyawan" id="tugas_belajar.karyawan" parent="tugas_belajar.tugas_belajar"
+              action="tugas_belajar.karyawan_action_window"/>
+
+  </data>
+</odoo>
