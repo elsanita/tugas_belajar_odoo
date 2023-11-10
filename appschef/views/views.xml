@@ -42,19 +42,23 @@
 
     <!-- Top menu item -->
 
-    <menuitem name="appschef" id="appschef.menu_root"/>
+    <menuitem name="Appschef" id="appschef.menu_root"/>
 
     <!-- menu categories -->
 
-    <menuitem name="Menu 1" id="appschef.menu_1" parent="appschef.menu_root"/>
-    <menuitem name="Menu 2" id="appschef.menu_2" parent="appschef.menu_root"/>
+    <menuitem name="Master" id="appschef.menu_master" parent="appschef.menu_root"/>
+    <!-- <menuitem name="Menu 2" id="appschef.menu_2" parent="appschef.menu_root"/> -->
 
     <!-- actions -->
 
-    <menuitem name="List" id="appschef.menu_1_list" parent="appschef.menu_1"
+    <menuitem name="Karyawan" id="appschef.submenu_karyawan" parent="appschef.menu_master"
               action="appschef.action_window"/>
-    <menuitem name="Server to list" id="appschef" parent="appschef.menu_2"
+
+    <menuitem name="Project" id="appschef.submenu_project" parent="appschef.menu_master"
               action="appschef.action_server"/>
+
+    <!-- <menuitem name="Server to list" id="appschef" parent="appschef.menu_2"
+              action="appschef.action_server"/> -->
 
   </data>
 </odoo>
