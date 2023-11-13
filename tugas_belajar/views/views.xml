@@ -33,18 +33,23 @@
       <field name="model">tugas_belajar.tugas_belajar_project</field>
       <field name="arch" type="xml">
         <form>
-            <sheet>
+          <sheet>
+            <div style="margin: 0px 0px 50px 0px">
+              <h2>
+                Form Project
+              </h2>
+            </div>
+            <group>
               <group>
-                <group>
-                  <field name="name"/>
-                  <field name="tipe_project"/>
-                </group>
-                <group>
-                  <field name="teknologi"/>
-                </group>
+                <field name="name"/>
+                <field name="tipe_project"/>
               </group>
-            </sheet>
-          </form>
+              <group>
+                <field name="teknologi"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
       </field>
     </record>
 
@@ -54,21 +59,26 @@
       <field name="model">tugas_belajar.tugas_belajar_karyawan</field>
       <field name="arch" type="xml">
         <form>
-            <sheet>
+          <sheet>
+            <div style="margin: 0px 0px 50px 0px">
+              <h2>
+                Form Project
+              </h2>
+            </div>
+            <group>
               <group>
-                <group>
-                  <field name="name"/>
-                  <field name="jabatan"/>
-                  <field name="manager"/>
-                </group>
-                <group>
-                  <field name="jenis_kelamin"/>
-                  <field name="tanggal_lahir"/>
-                  <field name="project" widget="many2many_tags"/>
-                </group>
+                <field name="name"/>
+                <field name="jabatan"/>
+                <field name="manager"/>
               </group>
-            </sheet>
-          </form>
+              <group>
+                <field name="jenis_kelamin"/>
+                <field name="tanggal_lahir"/>
+                <field name="project" widget="many2many_tags"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
       </field>
     </record>
 
@@ -131,11 +141,9 @@
 
     <!-- actions -->
 
-    <menuitem name="Project" id="tugas_belajar.project" parent="tugas_belajar.tugas_belajar"
-              action="tugas_belajar.project_action_window"/>
+    <menuitem name="Project" id="tugas_belajar.project" parent="tugas_belajar.tugas_belajar" action="tugas_belajar.project_action_window"/>
 
-    <menuitem name="Karyawan" id="tugas_belajar.karyawan" parent="tugas_belajar.tugas_belajar"
-              action="tugas_belajar.karyawan_action_window"/>
+    <menuitem name="Karyawan" id="tugas_belajar.karyawan" parent="tugas_belajar.tugas_belajar" action="tugas_belajar.karyawan_action_window"/>
 
   </data>
 </odoo>
