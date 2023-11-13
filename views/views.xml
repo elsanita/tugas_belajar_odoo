@@ -25,6 +25,19 @@
       </field>
     </record>
 
+
+    <record model="ir.ui.view" id="appschef.list_report">
+      <field name="name">List Report</field>
+      <field name="model">appschef.appschef_reports</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="tanggal"/>
+          <field name="karyawan"/>
+          <field name="status"/>
+        </tree>
+      </field>
+    </record>
+
     <!-- form view -->
     <record model="ir.ui.view" id="appschef.form_karyawan">
       <field name="name">Form Karyawan</field>
@@ -69,7 +82,23 @@
       </field>
     </record>
   
-
+    <record model="ir.ui.view" id="appschef.form_report">
+      <field name="name">Form Report</field>
+      <field name="model">appschef.appschef_reports</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+              <group>
+                <group>
+                  <field name="tanggal"/>
+                  <field name="karyawan"/>
+                  <field name="status"/>
+                </group>
+              </group>
+            </sheet>
+          </form>
+      </field>
+    </record>
 
     <!-- actions opening views on models -->
 
@@ -82,6 +111,12 @@
     <record model="ir.actions.act_window" id="appschef.action_window_project">
       <field name="name">Project</field>
       <field name="res_model">appschef.appschef_project</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="appschef.action_window_report">
+      <field name="name">Report</field>
+      <field name="res_model">appschef.appschef_reports</field>
       <field name="view_mode">tree,form</field>
     </record>
 
@@ -109,6 +144,7 @@
     <!-- menu categories -->
 
     <menuitem name="Master" id="appschef.menu_master" parent="appschef.menu_root"/>
+    <menuitem name="Report" id="appschef.menu_report" parent="appschef.menu_root"/>
     <!-- <menuitem name="Menu 2" id="appschef.menu_2" parent="appschef.menu_root"/> -->
 
     <!-- actions -->
@@ -118,6 +154,9 @@
 
     <menuitem name="Project" id="appschef.submenu_project" parent="appschef.menu_master"
               action="appschef.action_window_project"/>
+
+    <menuitem name="Daily Report" id="appschef.submenu_daily_report" parent="appschef.menu_report"
+              action="appschef.action_window_report"/>
 
     <!-- <menuitem name="Server to list" id="appschef" parent="appschef.menu_2"
               action="appschef.action_server"/> -->
