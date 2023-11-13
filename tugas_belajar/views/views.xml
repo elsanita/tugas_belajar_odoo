@@ -2,6 +2,19 @@
   <data>
     <!-- explicit list view definition -->
 
+    <!-- REPORT LIST VIEW -->
+    <record model="ir.ui.view" id="tugas_belajar.report_list">
+      <field name="name">tugas_belajar report list</field>
+      <field name="model">tugas_belajar.tugas_belajar_report</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="tanggal"/>
+          <field name="karyawan"/>
+          <field name="status"/>
+        </tree>
+      </field>
+    </record>
+
     <!-- PROJECT LIST VIEW -->
     <record model="ir.ui.view" id="tugas_belajar.project_list">
       <field name="name">tugas_belajar project list</field>
@@ -26,6 +39,42 @@
       </field>
     </record>
 
+    <!-- REPORT FORM VIEW -->
+    <record model="ir.ui.view" id="tugas_belajar.report_form">
+      <field name="name">Form Report</field>
+      <field name="model">tugas_belajar.tugas_belajar_report</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+            <button name="action_validate_report" string="Validasi" class="btn-primary" type="object" attrs="{'invisible':[('status','=','validated')]}"/>
+            <field name="status" widget="statusbar"/>
+          </header>
+          <sheet>
+            <div style="margin: 0px 0px 50px 0px">
+              <h2>
+                Form Report
+              </h2>
+            </div>
+            <div style="width: 300px">
+              <group>
+                <field name="tanggal"/>
+                <field name="karyawan"/>
+              </group>
+            </div>
+            <notebook>
+              <page string="Report" name="list_report">
+                <field name="list_report">
+                  <tree>
+                    <field name="projects"/>
+                    <field name="keterangan"/>
+                  </tree>
+                </field>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
 
     <!-- PROJECT FORM VIEW -->
     <record model="ir.ui.view" id="tugas_belajar.project_form">
@@ -85,6 +134,13 @@
 
     <!-- actions opening views on models -->
 
+    <!-- REPORT VIEW ACTIONS -->
+    <record model="ir.actions.act_window" id="tugas_belajar.report_action_window">
+      <field name="name">Daily Report</field>
+      <field name="res_model">tugas_belajar.tugas_belajar_report</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
     <!-- PROJECT VIEW ACTIONS -->
     <record model="ir.actions.act_window" id="tugas_belajar.project_action_window">
       <field name="name">Project</field>
@@ -103,6 +159,19 @@
     <!-- server action to the one above -->
 
     <!-- PROJECT SERVER ACTIONS -->
+    <record model="ir.actions.server" id="tugas_belajar.report_action_server">
+      <field name="name">tugas_belajar report server</field>
+      <field name="model_id" ref="model_tugas_belajar_tugas_belajar_report"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+
     <record model="ir.actions.server" id="tugas_belajar.project_action_server">
       <field name="name">tugas_belajar project server</field>
       <field name="model_id" ref="model_tugas_belajar_tugas_belajar_project"/>
@@ -137,13 +206,14 @@
 
     <!-- menu categories -->
 
-    <menuitem name="Master" id="tugas_belajar.tugas_belajar" parent="tugas_belajar.menu_root"/>
+    <menuitem name="Report" id="tugas_belajar.report" parent="tugas_belajar.menu_root"/>
+    <menuitem name="Master" id="tugas_belajar.master" parent="tugas_belajar.menu_root"/>
 
     <!-- actions -->
+    <menuitem name="Daily Report" id="tugas_belajar.daily_report" parent="tugas_belajar.report" action="tugas_belajar.report_action_window"/>
 
-    <menuitem name="Project" id="tugas_belajar.project" parent="tugas_belajar.tugas_belajar" action="tugas_belajar.project_action_window"/>
-
-    <menuitem name="Karyawan" id="tugas_belajar.karyawan" parent="tugas_belajar.tugas_belajar" action="tugas_belajar.karyawan_action_window"/>
+    <menuitem name="Project" id="tugas_belajar.project" parent="tugas_belajar.master" action="tugas_belajar.project_action_window"/>
+    <menuitem name="Karyawan" id="tugas_belajar.karyawan" parent="tugas_belajar.master" action="tugas_belajar.karyawan_action_window"/>
 
   </data>
 </odoo>
