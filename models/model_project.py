@@ -5,5 +5,5 @@ class appschef_project(models.Model):
     _description = 'model for projects'
 
     name = fields.Char()
-    teknologi = fields.Selection([("py","Python"),('kt', 'Kotlin'),('java', 'Java'),('dart', 'Dart')])
+    teknologi = fields.Selection([("py","Python"),('kt', 'Kotlin'),('java', 'Java'), ('dart', 'Dart'), ('goolang', 'Goolang')])
     tipe_project = fields.Selection([('et', 'Extended Team'),('fb', 'Fixed Bid'), ('dt', 'Dedicated Team')])
