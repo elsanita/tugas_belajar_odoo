@@ -52,7 +52,7 @@
           <sheet>
             <div style="margin: 0px 0px 50px 0px">
               <h2>
-                Form Report
+                <field name="name"/>
               </h2>
             </div>
             <div style="width: 300px">
@@ -63,8 +63,8 @@
             </div>
             <notebook>
               <page string="Report" name="list_report">
-                <field name="list_report">
-                  <tree>
+                <field name="list_report" widget="one2many">
+                  <tree editable="bottom">
                     <field name="projects"/>
                     <field name="keterangan"/>
                   </tree>
