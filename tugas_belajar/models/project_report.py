@@ -8,5 +8,5 @@ class tugas_belajar_project_report_line(models.Model):
     _description = 'tugas_belajar.tugas_belajar_project_report_line'
 
     report_id = fields.Many2one('tugas_belajar.tugas_belajar_report')
-    projects = fields.Many2one('tugas_belajar.tugas_belajar_project')
-    keterangan = fields.Char()
+    projects = fields.Many2one('tugas_belajar.tugas_belajar_project', required=True)
+    keterangan = fields.Char(required=True)

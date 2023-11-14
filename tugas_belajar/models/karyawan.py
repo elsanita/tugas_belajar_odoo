@@ -7,7 +7,7 @@ class tugas_belajar_karyawan(models.Model):
     _name = 'tugas_belajar.tugas_belajar_karyawan'
     _description = 'tugas_belajar.tugas_belajar_karyawan'
 
-    name = fields.Char()
+    name = fields.Char(required=True)
     jabatan = fields.Selection([
         ('manajer_pemasaran', 'Manajer Pemasaran'),
         ('manajer_ti', 'Manajer Teknologi Informasi'),

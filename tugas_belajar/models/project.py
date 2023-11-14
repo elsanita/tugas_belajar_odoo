@@ -7,7 +7,7 @@ class tugas_belajar_project(models.Model):
     _name = 'tugas_belajar.tugas_belajar_project'
     _description = 'tugas_belajar.tugas_belajar_project'
 
-    name = fields.Char()
+    name = fields.Char(required=True)
     teknologi = fields.Selection([
         ('java', 'Java'),
         ('python', 'Python'),
