@@ -26,8 +26,9 @@
     'data': [
         'security/ir.model.access.csv',
         'views/views.xml',
-        'views/templates.xml',
         'data/sequence.xml',
+        'reports/daily_report_action.xml',
+        'reports/daily_report_pdf_template.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
