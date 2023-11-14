@@ -33,7 +33,7 @@
         <tree>
           <field name="tanggal"/>
           <field name="karyawan"/>
-          <field name="status"/>
+          <!-- <field name="status"/> -->
         </tree>
       </field>
     </record>
@@ -44,21 +44,21 @@
       <field name="model">appschef.appschef_karyawan</field>
       <field name="arch" type="xml">
         <form>
-            <sheet>
+          <sheet>
+            <group>
               <group>
-                <group>
-                  <field name="name"/>
-                  <field name="manager"/>
-                  <field name="jabatan"/>
-                </group>
-                <group>
-                  <field name="jenis_kelamin"/>
-                  <field name="tanggal_lahir"/>
-                  <field name="project" widget="many2many_tags"/>
-                </group>
+                <field name="name"/>
+                <field name="manager"/>
+                <field name="jabatan"/>
               </group>
-            </sheet>
-          </form>
+              <group>
+                <field name="jenis_kelamin"/>
+                <field name="tanggal_lahir"/>
+                <field name="project" widget="many2many_tags"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
       </field>
     </record>
 
@@ -67,36 +67,52 @@
       <field name="model">appschef.appschef_project</field>
       <field name="arch" type="xml">
         <form>
-            <sheet>
+          <sheet>
+            <group>
               <group>
-                <group>
-                  <field name="name"/>
-                </group>
-                <group>
-                  <field name="teknologi"/>
-                  <field name="tipe_project"/>
-                </group>
+                <field name="name"/>
               </group>
-            </sheet>
-          </form>
+              <group>
+                <field name="teknologi"/>
+                <field name="tipe_project"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
       </field>
     </record>
-  
+
     <record model="ir.ui.view" id="appschef.form_report">
       <field name="name">Form Report</field>
       <field name="model">appschef.appschef_reports</field>
       <field name="arch" type="xml">
         <form>
-            <sheet>
+          <header>
+            <button string="Validate" name="validate_report" type="object" class="oe_highlight" attrs="{'invisible':[('status','=',('valid'))]}"/>
+            <field name="status" widget="statusbar"/>
+          </header>
+          <sheet>
+            <group>
               <group>
-                <group>
-                  <field name="tanggal"/>
-                  <field name="karyawan"/>
-                  <field name="status"/>
-                </group>
+                <field name="tanggal"/>
+                <!-- <field name="status" attrs="{'readonly':[('status','=','valid')]}"/> -->
               </group>
-            </sheet>
-          </form>
+              <group>
+                <field name="karyawan"/>
+              </group>
+            </group>
+            <notebook>
+              <page string="Reports" name="list_report">
+                <field name="projects" widget="one2many">
+                  <tree default_order="projects asc">
+                    <field name="project_name"/>
+                    <field name="keterangan"/>
+                  </tree>
+                </field>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
       </field>
     </record>
 
@@ -143,23 +159,19 @@
 
     <!-- menu categories -->
 
-    <menuitem name="Master" id="appschef.menu_master" parent="appschef.menu_root"/>
-    <menuitem name="Report" id="appschef.menu_report" parent="appschef.menu_root"/>
+    <menuitem name="Report" id="appschef.menu_report" parent="appschef.menu_root" sequence="1"/>
+    <menuitem name="Master" id="appschef.menu_master" parent="appschef.menu_root" sequence="2"/>
     <!-- <menuitem name="Menu 2" id="appschef.menu_2" parent="appschef.menu_root"/> -->
 
     <!-- actions -->
 
-    <menuitem name="Karyawan" id="appschef.submenu_karyawan" parent="appschef.menu_master"
-              action="appschef.action_window_karyawan"/>
+    <menuitem name="Karyawan" id="appschef.submenu_karyawan" parent="appschef.menu_master" action="appschef.action_window_karyawan"/>
 
-    <menuitem name="Project" id="appschef.submenu_project" parent="appschef.menu_master"
-              action="appschef.action_window_project"/>
+    <menuitem name="Project" id="appschef.submenu_project" parent="appschef.menu_master" action="appschef.action_window_project"/>
 
-    <menuitem name="Daily Report" id="appschef.submenu_daily_report" parent="appschef.menu_report"
-              action="appschef.action_window_report"/>
+    <menuitem name="Daily Report" id="appschef.submenu_daily_report" parent="appschef.menu_report" action="appschef.action_window_report"/>
 
-    <!-- <menuitem name="Server to list" id="appschef" parent="appschef.menu_2"
-              action="appschef.action_server"/> -->
+    <!-- <menuitem name="Server to list" id="appschef" parent="appschef.menu_2" action="appschef.action_server"/> -->
 
   </data>
 </odoo>
