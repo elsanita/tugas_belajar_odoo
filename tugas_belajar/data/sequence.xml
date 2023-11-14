@@ -4,7 +4,7 @@
         <record id="seq_report" model="ir.sequence">
             <field name="name">Report</field>
             <field name="code">tugas_belajar.tugas_belajar_report</field>
-            <field name="prefix">RPT - </field>
+            <field name="prefix">RPT-</field>
             <field name="padding">4</field>
         </record>
     </data>
