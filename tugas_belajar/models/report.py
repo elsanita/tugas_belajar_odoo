@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields
+from odoo import models, fields, api, _
 
 
 class tugas_belajar_report(models.Model):
     _name = 'tugas_belajar.tugas_belajar_report'
     _description = 'tugas_belajar.tugas_belajar_report'
 
-    tanggal = fields.Date()
-    karyawan = fields.Many2one('tugas_belajar.tugas_belajar_karyawan')
+    name = fields.Char()
+    tanggal = fields.Date(required=True)
+    karyawan = fields.Many2one('tugas_belajar.tugas_belajar_karyawan', required=True)
     status = fields.Selection([
         ('draft', 'Draft'),
         ('validated', 'Validated')
@@ -17,3 +18,10 @@ class tugas_belajar_report(models.Model):
     
     def action_validate_report(self):
         self.status = 'validated'
+
+    @api.model
+    def create(self, vals):
+        if vals.get('name', _('New')) == _('New'):
+            vals['name'] = self.env['ir.sequence'].next_by_code('tugas_belajar.tugas_belajar_report') or _('New')
+        res = super(tugas_belajar_report, self).create(vals)
+        return res
