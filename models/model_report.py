@@ -16,7 +16,7 @@ class appschef_reports(models.Model):
     )
     projects = fields.One2many(
         comodel_name="appschef.reports_line",
-        inverse_name="project_name",
+        inverse_name="report",
         string="Reports",
     )
 

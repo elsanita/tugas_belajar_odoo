@@ -104,7 +104,7 @@
             <notebook>
               <page string="Reports" name="list_report">
                 <field name="projects" widget="one2many">
-                  <tree default_order="projects asc">
+                  <tree default_order="projects asc"  editable="bottom">
                     <field name="project_name"/>
                     <field name="keterangan"/>
                   </tree>
