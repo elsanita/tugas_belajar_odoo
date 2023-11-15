@@ -7,7 +7,7 @@ class tugas_belajar_report(models.Model):
     _name = 'tugas_belajar.tugas_belajar_report'
     _description = 'tugas_belajar.tugas_belajar_report'
 
-    name = fields.Char(readonly=True)
+    name = fields.Char(readonly=True, default='New')
     tanggal = fields.Date(required=True)
     karyawan = fields.Many2one('tugas_belajar.tugas_belajar_karyawan', required=True)
     status = fields.Selection([
