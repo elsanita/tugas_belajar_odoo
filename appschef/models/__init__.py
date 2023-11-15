@@ -1,3 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from . import models
+from . import model_karyawan
+from . import model_project
+from . import model_report
