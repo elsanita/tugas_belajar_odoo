@@ -27,7 +27,13 @@ class tugas_belajar_report(models.Model):
         return res
     
     def count_projects(self):
-        return len(self.list_report)
+        projects_list = []
+        for project in self.list_report:
+            projects_list.append(project.projects.name)
+
+        project_set = {project for project in projects_list}
+
+        return len(project_set)
     
     def get_manager(self):
         return self.karyawan.manager.name
