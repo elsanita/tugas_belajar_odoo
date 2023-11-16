@@ -3,8 +3,8 @@
 from odoo import models, fields, api
 
 
-class appschef_karyawan(models.Model):
-    _name = "appschef.appschef_karyawan"
+class AppschefKaryawan(models.Model):
+    _name = "karyawan"
     _description = "model for karyawan"
 
     name = fields.Char("Name")
@@ -18,7 +18,7 @@ class appschef_karyawan(models.Model):
             ("dev", "Developer"),
         ]
     )
-    manager = fields.Many2one(comodel_name="appschef.appschef_karyawan")
+    manager = fields.Many2one(comodel_name="karyawan")
     jenis_kelamin = fields.Selection(
         [
             ("lakilaki", "Laki-laki"),
@@ -27,6 +27,6 @@ class appschef_karyawan(models.Model):
     )
     tanggal_lahir = fields.Date("Tanggal Lahir")
     project = fields.Many2many(
-        comodel_name="appschef.appschef_project",
+        comodel_name="project",
         relation="karyawan_project_relation",
     )

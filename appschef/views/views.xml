@@ -3,8 +3,8 @@
     <!-- explicit list view definition -->
 
     <record model="ir.ui.view" id="appschef.list_karyawan">
-      <field name="name">appschef list</field>
-      <field name="model">appschef.appschef_karyawan</field>
+      <field name="name">List Karyawan</field>
+      <field name="model">karyawan</field>
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
@@ -16,7 +16,7 @@
 
     <record model="ir.ui.view" id="appschef.list_project">
       <field name="name">List Project</field>
-      <field name="model">appschef.appschef_project</field>
+      <field name="model">project</field>
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
@@ -28,12 +28,11 @@
 
     <record model="ir.ui.view" id="appschef.list_report">
       <field name="name">List Report</field>
-      <field name="model">appschef.appschef_reports</field>
+      <field name="model">reports</field>
       <field name="arch" type="xml">
         <tree>
           <field name="tanggal"/>
           <field name="karyawan"/>
-          <!-- <field name="status"/> -->
         </tree>
       </field>
     </record>
@@ -41,7 +40,7 @@
     <!-- form view -->
     <record model="ir.ui.view" id="appschef.form_karyawan">
       <field name="name">Form Karyawan</field>
-      <field name="model">appschef.appschef_karyawan</field>
+      <field name="model">karyawan</field>
       <field name="arch" type="xml">
         <form>
           <sheet>
@@ -64,7 +63,7 @@
 
     <record model="ir.ui.view" id="appschef.form_project">
       <field name="name">Form Project</field>
-      <field name="model">appschef.appschef_project</field>
+      <field name="model">project</field>
       <field name="arch" type="xml">
         <form>
           <sheet>
@@ -84,7 +83,7 @@
 
     <record model="ir.ui.view" id="appschef.form_report">
       <field name="name">Form Report</field>
-      <field name="model">appschef.appschef_reports</field>
+      <field name="model">reports</field>
       <field name="arch" type="xml">
         <form>
           <header>
@@ -103,8 +102,8 @@
             </group>
             <notebook>
               <page string="Reports" name="list_report">
-                <field name="projects" widget="one2many">
-                  <tree default_order="projects asc"  editable="bottom">
+                <field name="projects">
+                  <tree default_order="project_name desc" editable="bottom">
                     <field name="project_name"/>
                     <field name="keterangan"/>
                   </tree>
@@ -120,19 +119,19 @@
 
     <record model="ir.actions.act_window" id="appschef.action_window_karyawan">
       <field name="name">Karyawan</field>
-      <field name="res_model">appschef.appschef_karyawan</field>
+      <field name="res_model">karyawan</field>
       <field name="view_mode">tree,form</field>
     </record>
 
     <record model="ir.actions.act_window" id="appschef.action_window_project">
       <field name="name">Project</field>
-      <field name="res_model">appschef.appschef_project</field>
+      <field name="res_model">project</field>
       <field name="view_mode">tree,form</field>
     </record>
 
     <record model="ir.actions.act_window" id="appschef.action_window_report">
       <field name="name">Report</field>
-      <field name="res_model">appschef.appschef_reports</field>
+      <field name="res_model">reports</field>
       <field name="view_mode">tree,form</field>
     </record>
 
@@ -159,8 +158,8 @@
 
     <!-- menu categories -->
 
-    <menuitem name="Report" id="appschef.menu_report" parent="appschef.menu_root" sequence="1"/>
-    <menuitem name="Master" id="appschef.menu_master" parent="appschef.menu_root" sequence="2"/>
+    <menuitem name="Master" id="appschef.menu_master" parent="appschef.menu_root" sequence="1"/>
+    <menuitem name="Report" id="appschef.menu_report" parent="appschef.menu_root" sequence="2"/>
     <!-- <menuitem name="Menu 2" id="appschef.menu_2" parent="appschef.menu_root"/> -->
 
     <!-- actions -->

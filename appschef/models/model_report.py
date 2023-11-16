@@ -1,12 +1,15 @@
+# -*- coding: utf-8 -*-
+
 from odoo import models, fields, api
 
 
-class appschef_reports(models.Model):
-    _name = "appschef.appschef_reports"
+class AppschefReports(models.Model):
+    _name = "reports"
     _description = "model for reports"
 
+    name = fields.Char(related="karyawan.name")
     tanggal = fields.Date("Tanggal")
-    karyawan = fields.Many2one(comodel_name="appschef.appschef_karyawan")
+    karyawan = fields.Many2one("karyawan")
     status = fields.Selection(
         [
             ("draft", "Draft"),
@@ -15,8 +18,8 @@ class appschef_reports(models.Model):
         default="draft",
     )
     projects = fields.One2many(
-        comodel_name="appschef.reports_line",
-        inverse_name="report",
+        "reports.line",
+        "report",
         string="Reports",
     )
 
@@ -25,12 +28,12 @@ class appschef_reports(models.Model):
 
 
 class ReportsLine(models.Model):
-    _name = "appschef.reports_line"
+    _name = "reports.line"
     _description = "model for reports line"
 
     project_name = fields.Many2one(
-        comodel_name="appschef.appschef_project",
+        "project",
         string="Nama Project",
     )
-    report = fields.Many2one(comodel_name="appschef.appschef_reports")
+    report = fields.Many2one("reports")
     keterangan = fields.Char("Keterangan")
