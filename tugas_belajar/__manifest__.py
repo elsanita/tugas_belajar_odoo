@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'product'],
 
     # always loaded
     'data': [
@@ -32,6 +32,10 @@
         'views/karyawan/karyawan_server_actions.xml',
         'views/karyawan/karyawan_tree_view.xml',
         'views/karyawan/karyawan_view_actions.xml',
+        'views/rule_komisi_karyawan/rule_komisi_karyawan_form_view.xml',
+        'views/rule_komisi_karyawan/rule_komisi_karyawan_server_actions.xml',
+        'views/rule_komisi_karyawan/rule_komisi_karyawan_tree_view.xml',
+        'views/rule_komisi_karyawan/rule_komisi_karyawan_view_actions.xml',
         'views/project/project_form_view.xml',
         'views/project/project_server_actions.xml',
         'views/project/project_tree_view.xml',
@@ -41,6 +45,7 @@
         'views/report/report_tree_view.xml',
         'views/report/report_view_actions.xml',
         'views/top_menu_view.xml',
+        'wizards/views/rule_komisi_karyawan_form_wizard.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
