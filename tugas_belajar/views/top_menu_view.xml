@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Top menu item -->
+
+        <menuitem name="Appschef" id="tugas_belajar.menu_root"/>
+
+        <!-- menu categories -->
+
+        <menuitem name="Report" id="tugas_belajar.report" parent="tugas_belajar.menu_root"/>
+        <menuitem name="Master" id="tugas_belajar.master" parent="tugas_belajar.menu_root"/>
+
+        <!-- actions -->
+        <menuitem name="Daily Report" id="tugas_belajar.daily_report" parent="tugas_belajar.report" action="tugas_belajar.report_action_window"/>
+
+        <menuitem name="Project" id="tugas_belajar.project" parent="tugas_belajar.master" action="tugas_belajar.project_action_window"/>
+        <menuitem name="Karyawan" id="tugas_belajar.karyawan" parent="tugas_belajar.master" action="tugas_belajar.karyawan_action_window"/>
+    </data>
+</odoo>

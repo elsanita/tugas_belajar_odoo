@@ -24,11 +24,23 @@
 
     # always loaded
     'data': [
-        'security/ir.model.access.csv',
-        'views/views.xml',
         'data/sequence.xml',
         'reports/daily_report_action.xml',
         'reports/daily_report_pdf_template.xml',
+        'security/ir.model.access.csv',
+        'views/karyawan/karyawan_form_view.xml',
+        'views/karyawan/karyawan_server_actions.xml',
+        'views/karyawan/karyawan_tree_view.xml',
+        'views/karyawan/karyawan_view_actions.xml',
+        'views/project/project_form_view.xml',
+        'views/project/project_server_actions.xml',
+        'views/project/project_tree_view.xml',
+        'views/project/project_view_actions.xml',
+        'views/report/report_form_view.xml',
+        'views/report/report_server_actions.xml',
+        'views/report/report_tree_view.xml',
+        'views/report/report_view_actions.xml',
+        'views/top_menu_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
