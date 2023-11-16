@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="tugas_belajar.rule_komisi_karyawan_form">
+            <field name="name">Form Rule Komisi Karyawan</field>
+            <field name="model">tugas_belajar.tugas_belajar_rule_komisi_karyawan</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="add_rule" string="Tambah Rule" class="btn-primary" type="object"/>
+                    </header>
+                    <sheet>
+                        <div style="margin: 0px 0px 20px 0px">
+                            <h2>Form Rule Komisi Karyawan</h2>
+                        </div>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <notebook>
+                            <page string="Rule" name="list_rule">
+                                <field name="products" widget="one2many">
+                                    <tree editable="bottom" delete="0" edit="0" create="0">
+                                        <field name="product"/>
+                                        <field name="persentase"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

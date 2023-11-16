@@ -15,5 +15,6 @@
 
         <menuitem name="Project" id="tugas_belajar.project" parent="tugas_belajar.master" action="tugas_belajar.project_action_window"/>
         <menuitem name="Karyawan" id="tugas_belajar.karyawan" parent="tugas_belajar.master" action="tugas_belajar.karyawan_action_window"/>
+        <menuitem name="Rule Komisi Karyawan" id="tugas_belajar.rule_komisi_karyawan" parent="tugas_belajar.master" action="tugas_belajar.rule_komisi_karyawan_action_window"/>
     </data>
 </odoo>
