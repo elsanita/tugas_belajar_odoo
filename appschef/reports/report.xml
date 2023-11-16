@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <report
+        id="daily_report_pdf"
+        model="reports"
+        string="Daily Report"
+        report_type="qweb-pdf"
+        name="appschef.daily_report"
+        file="appschef.daily_report"
+        attachment_use="False"
+    />
+
+</odoo>
