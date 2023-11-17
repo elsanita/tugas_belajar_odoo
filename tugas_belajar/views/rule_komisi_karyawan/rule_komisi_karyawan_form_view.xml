@@ -19,7 +19,7 @@
                         <notebook>
                             <page string="Rule" name="list_rule">
                                 <field name="products" widget="one2many">
-                                    <tree editable="bottom" delete="0" edit="0" create="0">
+                                    <tree edit="0" create="0">
                                         <field name="product"/>
                                         <field name="persentase"/>
                                     </tree>
