@@ -7,7 +7,8 @@ class AppschefReports(models.Model):
     _name = "reports"
     _description = "model for reports"
 
-    name = fields.Char(related="karyawan.name")
+    name = fields.Char(related="report_number")
+    report_number = fields.Char(readonly=True, default="DR - XXXX")
     tanggal = fields.Date("Tanggal")
     karyawan = fields.Many2one("karyawan")
     status = fields.Selection(
@@ -25,6 +26,23 @@ class AppschefReports(models.Model):
 
     def validate_report(self):
         self.status = "valid"
+
+    @api.model
+    def create(self, vals):
+        vals["report_number"] = self.env["ir.sequence"].next_by_code("report.number")
+        res = super(AppschefReports, self).create(vals)
+        return res
+
+    def total_project(self):
+        existing_project = []
+        for data in self.projects:
+            existing_project.append(data.project_name)
+        projects = {data for data in existing_project}
+
+        return len(projects)
+
+    def get_manager_name(self):
+        return self.karyawan.manager.name
 
 
 class ReportsLine(models.Model):

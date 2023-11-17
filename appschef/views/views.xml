@@ -91,6 +91,11 @@
             <field name="status" widget="statusbar"/>
           </header>
           <sheet>
+            <div style="margin: 0px 0px 20px 0px">
+              <h1>
+                <field name="report_number"/>
+              </h1>
+            </div>
             <group>
               <group>
                 <field name="tanggal"/>
