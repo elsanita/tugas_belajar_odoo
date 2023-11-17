@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'product'],
+    'depends': ['base', 'product', 'sale'],
 
     # always loaded
     'data': [
@@ -36,6 +36,7 @@
         'views/rule_komisi_karyawan/rule_komisi_karyawan_server_actions.xml',
         'views/rule_komisi_karyawan/rule_komisi_karyawan_tree_view.xml',
         'views/rule_komisi_karyawan/rule_komisi_karyawan_view_actions.xml',
+        'views/rule_komisi_karyawan/sale_inherit.xml',
         'views/project/project_form_view.xml',
         'views/project/project_server_actions.xml',
         'views/project/project_tree_view.xml',
