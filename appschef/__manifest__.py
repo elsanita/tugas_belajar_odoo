@@ -24,6 +24,8 @@
         "views/templates.xml",
         "views/karyawan/karyawan_view.xml",
         "views/karyawan/karyawan_action.xml",
+        "views/karyawan/komisi_karyawan_view.xml",
+        "views/karyawan/komisi_karyawan_action.xml",
         "views/project/project_view.xml",
         "views/project/project_action.xml",
         "views/report/report_view.xml",

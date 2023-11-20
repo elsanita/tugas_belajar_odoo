@@ -1,0 +1,53 @@
+<odoo>
+    <data>
+
+        <!-- Tree View -->
+        <record model="ir.ui.view" id="appschef.komisi_karyawan">
+            <field name="name">Rule Komisi Karyawan</field>
+            <field name="model">komisi.karyawan</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="nama_komisi"/>
+                </tree>
+            </field>
+        </record>
+        <!--  -->
+
+        <!-- Form View -->
+        <record model="ir.ui.view" id="appschef.form_komisi_karyawan">
+            <field name="name">Form Komisi Karyawan</field>
+            <field name="model">komisi.karyawan</field>
+            <field name="arch" type="xml">
+                <form>
+                    <!-- <header>
+                        <button string="Tambah Rule" name="add_rule" type="object" class="oe_highlight"/>
+                    </header> -->
+                    <sheet>
+                        <div style="margin: 0px 0px 20px 0px">
+                            <h3>
+                                Komisi Karyawan
+                            </h3>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="nama_komisi"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Reports" name="list_report">
+                                <field name="products" widget="one2many">
+                                    <tree default_order="produk asc" create="0" edit="0">
+                                        <field name="produk"/>
+                                        <field name="persentase_komisi"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!--  -->
+
+    </data>
+</odoo>
