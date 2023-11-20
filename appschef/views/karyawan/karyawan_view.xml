@@ -1,0 +1,45 @@
+<odoo>
+    <data>
+
+        <!-- Tree View -->
+        <record model="ir.ui.view" id="appschef.list_karyawan">
+            <field name="name">List Karyawan</field>
+            <field name="model">karyawan</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="jabatan"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--  -->
+
+        <!-- Form View -->
+        <record model="ir.ui.view" id="appschef.form_karyawan">
+            <field name="name">Form Karyawan</field>
+            <field name="model">karyawan</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="manager"/>
+                                <field name="jabatan"/>
+                            </group>
+                            <group>
+                                <field name="jenis_kelamin"/>
+                                <field name="tanggal_lahir"/>
+                                <field name="project" widget="many2many_tags"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--  -->
+
+    </data>
+</odoo>

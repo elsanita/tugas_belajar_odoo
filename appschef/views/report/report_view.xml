@@ -1,0 +1,57 @@
+<odoo>
+    <data>
+        <!-- Tree View -->
+        <record model="ir.ui.view" id="appschef.list_report">
+            <field name="name">List Report</field>
+            <field name="model">reports</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="tanggal"/>
+                    <field name="karyawan"/>
+                </tree>
+            </field>
+        </record>
+        <!--  -->
+
+        <!-- Form View -->
+        <record model="ir.ui.view" id="appschef.form_report">
+            <field name="name">Form Report</field>
+            <field name="model">reports</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button string="Validate" name="validate_report" type="object" class="oe_highlight" attrs="{'invisible':[('status','=',('valid'))]}"/>
+                        <field name="status" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div style="margin: 0px 0px 20px 0px">
+                            <h1>
+                                <field name="report_number"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="tanggal"/>
+                                <!-- <field name="status" attrs="{'readonly':[('status','=','valid')]}"/> -->
+                            </group>
+                            <group>
+                                <field name="karyawan"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Reports" name="list_report">
+                                <field name="projects">
+                                    <tree default_order="project_name desc" editable="bottom">
+                                        <field name="project_name"/>
+                                        <field name="keterangan"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!--  -->
+    </data>
+</odoo>

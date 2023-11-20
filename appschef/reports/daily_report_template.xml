@@ -4,18 +4,18 @@
     <template id="daily_report">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
-                <t t-call="web.external_layout">
+                <t t-call="web.basic_layout">
                     <div class="page">
                         <div class="oe_structure"/>
                         <h2>
                             <span t-field="o.report_number"/>
                         </h2>
                         <div>
-                            <strong>Tanggal: </strong>
+                            <strong>Tanggal:  </strong>
                             <span t-field="o.tanggal"/>
                         </div>
                         <div>
-                            <strong>Karyawan: </strong>
+                            <strong>Karyawan:  </strong>
                             <span t-field="o.karyawan"/>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                     Jumlah Project: <span t-esc="o.total_project()"/>
                     </p>
                     <p style="margin: 0px 30px" align="right" t-if="o.get_manager_name() != False">Diketahui oleh,</p>
-                    <p style="margin: 100px 20px" align="right">
+                    <p style="margin: 100px 30px" align="right">
                         <span t-if="o.get_manager_name() != False" t-esc="o.get_manager_name()"/>
                     </p>
                 </t>
