@@ -11,7 +11,7 @@ class tugas_belajar_sale_inherit(models.Model):
     jumlah_komisi = fields.Monetary(string="Jumlah Komisi", store=True, compute='_compute_commisions', tracking=4, default=0.0)
 
 
-    @api.depends('order_line.price_subtotal', 'order_line.price_tax', 'order_line.price_total')
+    @api.depends('order_line.price_subtotal', 'order_line.price_tax', 'order_line.price_total', 'penjual')
     def _compute_commisions(self):
         rule_komisi_karyawan_product_records = self.env['tugas_belajar.tugas_belajar_rule_komisi_karyawan_product'].search([('rule_komisi_id', '=', self.penjual.komisi.id)])
         
