@@ -23,3 +23,14 @@ class tugas_belajar_sale_inherit(models.Model):
             for komisi_product in rule_komisi_karyawan_product_records:
                 if komisi_product.product.id == product.product_template_id.id:
                     self.jumlah_komisi = self.jumlah_komisi + (product.price_unit * komisi_product.persentase/100)
+
+    def write(self, vals):
+        res = super(tugas_belajar_sale_inherit, self).write(vals)
+        self.env['tugas_belajar.tugas_belajar_history_komisi_karyawan'].create({
+            'so': self.name,
+            'karyawan': self.penjual.name,
+            'jumlah_komisi': self.jumlah_komisi,
+            'date': self.create_date
+        })
+
+        return res
