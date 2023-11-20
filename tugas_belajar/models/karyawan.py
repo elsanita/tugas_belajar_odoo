@@ -20,3 +20,4 @@ class tugas_belajar_karyawan(models.Model):
     ], default='pria', required=True)
     tanggal_lahir = fields.Date()
     project = fields.Many2many('tugas_belajar.tugas_belajar_project', 'project_karyawan_rel')
+    komisi = fields.Many2one('tugas_belajar.tugas_belajar_rule_komisi_karyawan')

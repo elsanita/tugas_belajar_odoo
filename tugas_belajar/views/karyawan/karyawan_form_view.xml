@@ -20,6 +20,7 @@
                                 <field name="jenis_kelamin"/>
                                 <field name="tanggal_lahir"/>
                                 <field name="project" widget="many2many_tags"/>
+                                <field name="komisi"/>
                             </group>
                         </group>
                     </sheet>
