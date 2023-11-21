@@ -19,9 +19,9 @@
             <field name="model">komisi.karyawan</field>
             <field name="arch" type="xml">
                 <form>
-                    <!-- <header>
-                        <button string="Tambah Rule" name="add_rule" type="object" class="oe_highlight"/>
-                    </header> -->
+                    <header>
+                        <button string="Tambah Rule" name="tambah_rule" type="object" class="btn-primary"/>
+                    </header>
                     <sheet>
                         <div style="margin: 0px 0px 20px 0px">
                             <h3>

@@ -15,7 +15,7 @@
     "category": "Employees",
     "version": "16.0.0.1",
     # any module necessary for this one to work correctly
-    "depends": ["base"],
+    "depends": ["base", "product", "sale"],
     # always loaded
     "data": [
         "security/ir.model.access.csv",
@@ -32,6 +32,7 @@
         "views/report/report_action.xml",
         "reports/report.xml",
         "reports/daily_report_template.xml",
+        "wizard/views/rule_komisi_karyawan_view_wizard.xml",
     ],
     # only loaded in demonstration mode
     "demo": [

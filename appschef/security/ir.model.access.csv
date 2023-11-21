@@ -5,3 +5,4 @@ access_reports,reports,model_reports,base.group_user,1,1,1,1
 access_reports_line,reports_line,model_reports_line,base.group_user,1,1,1,1
 access_komisi_karyawan,komisi.karyawan,model_komisi_karyawan,base.group_user,1,1,1,1
 access_rule_komisi_karyawan,rule.komisi.karyawan,model_rule_komisi_karyawan,base.group_user,1,1,1,1
+access_rule_komisi_karyawan_wizard,rule.komisi.karyawan.wizard,model_rule_komisi_karyawan_wizard,base.group_user,1,1,1,1

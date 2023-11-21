@@ -14,6 +14,24 @@ class KomisiKaryawan(models.Model):
         "rule_id",
     )
 
+    def tambah_rule(self):
+        view_id = self.env.ref("appschef.form_rule_komisi_karyawan_wizard").id
+        context = {
+            "rule_id": self.id,
+        }
+
+        return {
+            "name": "Rule Komisi Karyawan Wizard",
+            "type": "ir.actions.act_window",
+            "view_type": "form",
+            "view_mode": "form",
+            "res_model": "rule.komisi.karyawan.wizard",
+            "views": [(view_id, "form")],
+            "view_id": view_id,
+            "target": "new",
+            "context": context,
+        }
+
 
 class RuleKomisiKaryawan(models.Model):
     _name = "rule.komisi.karyawan"
@@ -25,7 +43,6 @@ class RuleKomisiKaryawan(models.Model):
     )
     produk = fields.Many2one(
         "product.template",
-        readonly=True,
     )
     persentase_komisi = fields.Integer(
         required=True,
