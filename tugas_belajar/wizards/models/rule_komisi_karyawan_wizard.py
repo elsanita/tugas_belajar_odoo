@@ -13,12 +13,9 @@ class tugas_belajar_rule_komisi_karyawan_wizard(models.TransientModel):
 
     def save(self):
         rule_komisi_id = self.env['tugas_belajar.tugas_belajar_rule_komisi_karyawan'].browse(self.env.context.get('active_id'))
-        rule_komisi_product_id = self.env['tugas_belajar.tugas_belajar_rule_komisi_karyawan_product'].create({
+
+        self.env['tugas_belajar.tugas_belajar_rule_komisi_karyawan_product'].create({
             'rule_komisi_id': rule_komisi_id.id,
             'product': self.product.id,
             'persentase': self.persentase,
-        })
-
-        self.env['tugas_belajar.tugas_belajar_rule_komisi_karyawan'].write({
-            'products': [(4, rule_komisi_product_id.id)]
         })

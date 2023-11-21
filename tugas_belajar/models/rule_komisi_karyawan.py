@@ -13,10 +13,7 @@ class tugas_belajar_rule_komisi_karyawan(models.Model):
 
     def add_rule(self):
         view_id = self.env.ref('tugas_belajar.tugas_belajar_rule_komisi_karyawan_wizard').id
-        context = {
-            'rule_komisi_id': self.id,
-        }
-
+        
         return {
             'name': "Wizard Rule Komisi Karyawan",
             'type': 'ir.actions.act_window',
@@ -26,7 +23,6 @@ class tugas_belajar_rule_komisi_karyawan(models.Model):
             'views': [(view_id, 'form')],
             'view_id': view_id,
             'target': 'new',
-            'context': context,
         }
     
 class tugas_belajar_rule_komisi_karyawan_product(models.Model):
