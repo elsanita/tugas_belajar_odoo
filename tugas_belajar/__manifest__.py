@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'product', 'sale'],
+    'depends': ['base', 'product', 'sale', 'point_of_sale'],
 
     # always loaded
     'data': [
@@ -51,6 +51,12 @@
         'views/top_menu_view.xml',
         'wizards/views/rule_komisi_karyawan_form_wizard.xml'
     ],
+    'assets': {
+        'point_of_sale.assets': [
+            'tugas_belajar/static/src/js/**/*',
+            'tugas_belajar/static/src/xml/**/*',
+        ],
+    },
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
