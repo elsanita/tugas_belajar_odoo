@@ -30,3 +30,4 @@ class AppschefKaryawan(models.Model):
         comodel_name="project",
         relation="karyawan_project_relation",
     )
+    komisi = fields.Many2one("komisi.karyawan")

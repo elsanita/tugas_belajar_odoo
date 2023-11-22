@@ -44,8 +44,8 @@ class RuleKomisiKaryawan(models.Model):
     produk = fields.Many2one(
         "product.template",
     )
-    persentase_komisi = fields.Integer(
+    persentase_komisi = fields.Float(
         required=True,
         string="Persentase Komisi",
-        default="0",
+        default="0.0",
     )
