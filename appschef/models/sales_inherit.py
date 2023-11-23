@@ -3,7 +3,7 @@
 from odoo import models, fields, api
 
 
-class SalesInherit(models.Model):
+class SaleOrder(models.Model):
     _inherit = "sale.order"
 
     penjual = fields.Many2one("karyawan", required=True)
@@ -17,8 +17,6 @@ class SalesInherit(models.Model):
 
     @api.depends(
         "order_line.price_subtotal",
-        "order_line.price_tax",
-        "order_line.price_total",
         "penjual",
     )
     def compute_commision(self):
@@ -38,3 +36,15 @@ class SalesInherit(models.Model):
                             product.price_subtotal
                             * (komisi_product.persentase_komisi / 100)
                         )
+
+    def action_confirm(self):
+        data = super(SaleOrder, self).action_confirm()
+        self.env["history.komisi.karyawan"].create(
+            {
+                "tanggal": self.date_order,
+                "nama_karyawan": self.penjual.name,
+                "so": self.name,
+                "jumlah_komisi": self.jumlah_komisi,
+            }
+        )
+        return data

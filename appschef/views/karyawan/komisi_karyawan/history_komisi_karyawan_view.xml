@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="appschef.history_komisi_karyawan">
+            <field name="name">History Komisi Karyawan</field>
+            <field name="model">history.komisi.karyawan</field>
+            <field name="arch" type="xml">
+                <tree create="0">
+                    <field name="tanggal"/>
+                    <field name="nama_karyawan"/>
+                    <field name="so"/>
+                    <field name="jumlah_komisi"/>
+                    <field name="currency_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>
