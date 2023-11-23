@@ -53,8 +53,8 @@
     ],
     'assets': {
         'point_of_sale.assets': [
-            'tugas_belajar/static/src/js/**/*',
-            'tugas_belajar/static/src/xml/**/*',
+            'tugas_belajar/static/src/js/ProductScreen.js',
+            'tugas_belajar/static/src/xml/pos_cashier_inherit.xml',
         ],
     },
     # only loaded in demonstration mode
