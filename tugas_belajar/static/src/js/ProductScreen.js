@@ -17,14 +17,12 @@ odoo.define('tugas_belajar.ProductScreen', function (require) {
                 if (!selectedOrderline) return;
 
                 const { confirmed, payload: inputCashierName } = await this.showPopup('TextAreaPopup', {
-                    // startingValue: selectedOrderline.get_cashier_name(),
-                    startingValue: selectedOrderline.get_customer_note(),
+                    startingValue: selectedOrderline.get_cashier_name(),
                     title: this.env._t('Add Cashier Name'),
                 });
 
                 if (confirmed) {
-                    // selectedOrderline.set_cashier_name(inputCashierName);
-                    selectedOrderline.set_customer_note(inputCashierName);
+                    selectedOrderline.set_cashier_name(inputCashierName);
                 }
             }
         };
