@@ -4,14 +4,14 @@ odoo.define('tugas_belajar.Orderline', function (require) {
     const Orderline = require('point_of_sale.Orderline');
     const Registries = require('point_of_sale.Registries');
 
-    const CashierName = (Orderline) =>
+    const PosCashierNameText = (Orderline) =>
         class extends Orderline {
             get cashierName() {
                 return this.props.line.get_cashier_name();
             }
         };
 
-    Registries.Component.extend(Orderline, CashierName);
+    Registries.Component.extend(Orderline, PosCashierNameText);
 
     return Orderline;
 });

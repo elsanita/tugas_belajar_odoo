@@ -5,7 +5,7 @@ odoo.define('tugas_belajar.ProductScreen', function (require) {
     const Registries = require('point_of_sale.Registries');
     const { useListener } = require("@web/core/utils/hooks");
 
-    const Update = (ProductScreen) =>
+    const PosCashierNameButtonListener = (ProductScreen) =>
         class extends ProductScreen {
             setup() {
                 super.setup();
@@ -27,7 +27,7 @@ odoo.define('tugas_belajar.ProductScreen', function (require) {
             }
         };
 
-    Registries.Component.extend(ProductScreen, Update);
+    Registries.Component.extend(ProductScreen, PosCashierNameButtonListener);
 
     return ProductScreen;
 });
