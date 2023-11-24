@@ -15,22 +15,13 @@
     </t>
 
     <t t-name="custom_cashier_name_text" t-inherit="point_of_sale.Orderline" t-inherit-mode="extension" owl="1">
-        <xpath expr="//li[@class='orderline']//ul[@class='info-list']//li[@class='info orderline-note']" position="replace">
-            <li class="info orderline-note-and-cashier-name">
-                <t t-if="customerNote">
-                    <i class="fa fa-sticky-note" role="img" aria-label="Customer Note" title="Customer Note"/>
-                    <span style="margin-left: 10px">
-                        <t t-esc="customerNote"/>
-                    </span>
-                </t>
-                <span style="margin-left: 30px"/>
-                <t t-if="customerNote">
-                    <i class="fa fa-sticky-note" role="img" aria-label="Customer Note" title="Customer Note"/>
-                    <span style="margin-left: 10px">
-                        <t t-esc="customerNote"/>
-                    </span>
-                </t>
-            </li>
+        <xpath expr="//li[@class='orderline']//ul[@class='info-list']//t[@t-if='customerNote']" position="after">
+            <t t-if="cashierName">
+                <li class="info orderline-note">
+                    <i class="fa fa-sticky-note" role="img" aria-label="Cashier Name" title="Cashier Name"/>
+                    <t t-esc="cashierName"/>
+                </li>
+            </t>
         </xpath>
     </t>
 </templates>
