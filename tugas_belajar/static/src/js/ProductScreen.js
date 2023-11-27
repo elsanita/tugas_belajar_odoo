@@ -16,9 +16,10 @@ odoo.define('tugas_belajar.ProductScreen', function (require) {
                 const selectedOrderline = this.env.pos.get_order().get_selected_orderline();
                 if (!selectedOrderline) return;
 
-                const { confirmed, payload: inputCashierName } = await this.showPopup('TextAreaPopup', {
+                const { confirmed, payload: inputCashierName } = await this.showPopup('TextInputPopup', {
                     startingValue: selectedOrderline.get_cashier_name(),
                     title: this.env._t('Add Cashier Name'),
+                    body: this.env._t('Input cashier name.'),
                 });
 
                 if (confirmed) {
