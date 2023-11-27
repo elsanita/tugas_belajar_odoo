@@ -7,3 +7,4 @@ from . import history_komisi_karyawan
 from . import report
 from . import project_report
 from . import sale_inherit
+from . import pos_order

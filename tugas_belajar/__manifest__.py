@@ -40,6 +40,7 @@
         'views/history_komisi_karyawan/history_komisi_karyawan_server_actions.xml',
         'views/history_komisi_karyawan/history_komisi_karyawan_tree_view.xml',
         'views/history_komisi_karyawan/history_komisi_karyawan_view_actions.xml',
+        'views/pos/pos_order_form.xml',
         'views/project/project_form_view.xml',
         'views/project/project_server_actions.xml',
         'views/project/project_tree_view.xml',
