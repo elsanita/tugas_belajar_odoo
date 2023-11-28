@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="tugas_belajar.history_komisi_karyawan_action_window">
+            <field name="name">History Komisi Karyawan</field>
+            <field name="res_model">tugas_belajar.tugas_belajar_history_komisi_karyawan</field>
+            <field name="view_mode">tree</field>
+        </record>
+    </data>
+</odoo>

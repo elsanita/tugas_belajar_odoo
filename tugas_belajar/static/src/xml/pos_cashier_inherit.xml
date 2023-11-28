@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="custom_cashier_button" t-inherit="point_of_sale.ActionpadWidget" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[@class='actionpad']//button[@class='button set-partner']" position="after">
+            <button class="button set-partner" t-att-class="{'decentered': isLongName}" t-on-click="() => this.trigger('click-cashier')">
+                <t t-if="!env.isMobile">
+                    <i class="fa fa-user" role="img" aria-label="Cashier" title="Cashier" />
+                </t>
+                <t t-if="props.partner">
+                    <t t-esc="props.partner.name" />
+                </t>
+                <t t-else="">Cashier</t>
+            </button>
+        </xpath>
+    </t>
+
+    <t t-name="custom_cashier_name_text" t-inherit="point_of_sale.Orderline" t-inherit-mode="extension" owl="1">
+        <xpath expr="//li[@class='orderline']//ul[@class='info-list']//t[@t-if='customerNote']" position="after">
+            <t t-if="cashierName">
+                <li class="info orderline-note">
+                    <i class="fa fa-sticky-note" role="img" aria-label="Cashier Name" title="Cashier Name"/>
+                    <t t-esc="cashierName"/>
+                </li>
+            </t>
+        </xpath>
+    </t>
+</templates>
+    

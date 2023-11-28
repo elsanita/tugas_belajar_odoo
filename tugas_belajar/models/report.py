@@ -7,7 +7,7 @@ class tugas_belajar_report(models.Model):
     _name = 'tugas_belajar.tugas_belajar_report'
     _description = 'tugas_belajar.tugas_belajar_report'
 
-    name = fields.Char(readonly=True)
+    name = fields.Char(readonly=True, default='New')
     tanggal = fields.Date(required=True)
     karyawan = fields.Many2one('tugas_belajar.tugas_belajar_karyawan', required=True)
     status = fields.Selection([
@@ -27,7 +27,13 @@ class tugas_belajar_report(models.Model):
         return res
     
     def count_projects(self):
-        return len(self.list_report)
+        projects_list = []
+        for project in self.list_report:
+            projects_list.append(project.projects.name)
+
+        project_set = {project for project in projects_list}
+
+        return len(project_set)
     
     def get_manager(self):
         return self.karyawan.manager.name

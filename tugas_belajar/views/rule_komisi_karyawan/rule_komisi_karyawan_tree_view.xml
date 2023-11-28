@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="tugas_belajar.rule_komisi_karyawan_list">
+            <field name="name">tugas_belajar rule komisi karyawan list</field>
+            <field name="model">tugas_belajar.tugas_belajar_rule_komisi_karyawan</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

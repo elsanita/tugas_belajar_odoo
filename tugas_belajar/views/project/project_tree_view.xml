@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="tugas_belajar.project_list">
+            <field name="name">tugas_belajar project list</field>
+            <field name="model">tugas_belajar.tugas_belajar_project</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="teknologi"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

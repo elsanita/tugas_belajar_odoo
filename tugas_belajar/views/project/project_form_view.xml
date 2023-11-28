@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="tugas_belajar.project_form">
+            <field name="name">Form Project</field>
+            <field name="model">tugas_belajar.tugas_belajar_project</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div style="margin: 0px 0px 20px 0px">
+                            <h1>Form Project</h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="tipe_project"/>
+                            </group>
+                            <group>
+                                <field name="teknologi"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

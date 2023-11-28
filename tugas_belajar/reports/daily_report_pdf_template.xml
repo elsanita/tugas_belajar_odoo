@@ -9,10 +9,10 @@
                         <h2>
                             <span t-field="o.name"/>
                         </h2>
-                        <p>
+                        <p align="right">
                             Tanggal : <span t-field="o.tanggal"/>
                         </p>
-                        <p>
+                        <p align="right">
                             Nama Karyawan : <span t-field="o.karyawan"/>
                         </p>
                     </div>
@@ -25,7 +25,7 @@
                         </thead>
                         <tbody>
                             <t t-foreach="o.list_report" t-as="lr">
-                                <tr>
+                                <tr align="center">
                                     <td>
                                         <span t-field="lr.projects"/>
                                     </td>
@@ -36,12 +36,12 @@
                             </t>
                         </tbody>
                     </table>
-                    <p align="right">
+                    <p align="right" style="margin: 30px 0px">
                         Jumlah Project: <span t-esc="o.count_projects()"/>
                     </p>
-                    <p align="right">Diketahui Oleh:</p>
-                    <p style="margin: 100px 0px" align="right">
-                        <span t-esc="o.get_manager()"/>
+                    <p style="margin: 0px 30px" align="right" t-if="o.get_manager() != False">Diketahui Oleh:</p>
+                    <p style="margin: 100px 30px" align="right">
+                        <span t-if="o.get_manager() != False" t-esc="o.get_manager()"/>
                     </p>
                 </t>
             </t>
