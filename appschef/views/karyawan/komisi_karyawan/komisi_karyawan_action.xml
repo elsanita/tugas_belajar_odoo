@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <!-- Action Window -->
+        <record model="ir.actions.act_window" id="appschef.action_window_rule_komisi_karyawan">
+            <field name="name">Rule Komisi Karyawan</field>
+            <field name="res_model">komisi.karyawan</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!--  -->
+
+        <!-- Action Server -->
+
+        <!--  -->
+    </data>
+</odoo>
