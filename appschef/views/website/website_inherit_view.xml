@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="btn_approval" name="Button Approval" inherit_id="account.portal_invoice_page">
+        <xpath expr="//div[@class='o_download_pdf btn-toolbar flex-sm-nowrap']" position="after">
+            <div class="btn btn-primary mb-2">
+                <a class="btn btn-primary btn-block o_penawaran_btn" title="Ajukan Penawaran" data-bs-toggle="modal" data-bs-target="#makeAnOfferModal">
+                    <i class="fa fa-fw fa-check-circle"/>
+                    Make an Offer 
+                </a>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="makeAnOfferModal" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Make an Offer</h5>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group row form-field">
+                                <div class="col-lg-3 col-md-4">
+                                    <label class="col-form-label">Product</label>
+                                    <label class="col-form-label">:</label>
+                                </div>
+                                <div class="col-lg-7 col-md-8">
+                                    <input id="product_name" type="text" class="form-control o_website_form_input" name="produk" readonly="true"/>
+                                </div>
+                                <div style="margin-bottom:12px"/>
+                                <div class="col-lg-3 col-md-4">
+                                    <label class="col-form-label">Sub-total</label>
+                                    <label class="col-form-label">:</label>
+                                </div>
+                                <div class="col-lg-7 col-md-8">
+                                    <input id="offer_price" type="text" class="form-control o_website_form_input" name="offer" placeholder="Rp.XXX.XXX"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

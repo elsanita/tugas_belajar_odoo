@@ -15,7 +15,7 @@
     "category": "Sales",
     "version": "16.0.0.1",
     # any module necessary for this one to work correctly
-    "depends": ["base", "product", "sale"],
+    "depends": ["base", "product", "sale", "account", "website"],
     # always loaded
     "data": [
         "security/ir.model.access.csv",
@@ -36,7 +36,10 @@
         "reports/report.xml",
         "reports/daily_report_template.xml",
         "wizard/views/rule_komisi_karyawan_view_wizard.xml",
+        "views/website/website_inherit_view.xml",
     ],
+    # "account.assets": [
+    # ],
     # only loaded in demonstration mode
     "demo": [
         "demo/demo.xml",
