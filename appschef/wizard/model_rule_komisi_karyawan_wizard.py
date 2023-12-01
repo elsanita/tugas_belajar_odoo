@@ -23,15 +23,6 @@ class RuleKomisiKaryawanWizard(models.TransientModel):
 
     def add_rule(self):
         rule_id = self.env["komisi.karyawan"].browse(self.env.context.get("active_id"))
-        # rule_komisi = self.env["rule.komisi.karyawan"].create(
-        #     {
-        #         "rule_id": rule_id.id,
-        #         "produk": self.produk.id,
-        #         "persentase_komisi": self.persentase_komisi,
-        #     }
-        # )
-
-        # self.env["komisi.karyawan"].write({"products": [(4, rule_komisi.id)]})
         rule_id.write(
             {
                 "products": [

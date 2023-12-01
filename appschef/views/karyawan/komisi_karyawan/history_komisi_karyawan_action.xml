@@ -1,6 +1,6 @@
 <odoo>
     <data>
-        <record model="ir.actions.act_window" id="appschef.action_window_history_komisi_karyawan">
+        <record model="ir.actions.act_window" id="action_window_history_komisi_karyawan">
             <field name="name">History Komisi Karyawan</field>
             <field name="res_model">history.komisi.karyawan</field>
             <field name="view_mode">tree</field>

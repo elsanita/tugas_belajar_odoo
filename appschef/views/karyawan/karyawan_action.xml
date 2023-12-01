@@ -3,7 +3,7 @@
 
         <!-- Action Window -->
 
-        <record model="ir.actions.act_window" id="appschef.action_window_karyawan">
+        <record model="ir.actions.act_window" id="action_window_karyawan">
             <field name="name">Karyawan</field>
             <field name="res_model">karyawan</field>
             <field name="view_mode">tree,form</field>

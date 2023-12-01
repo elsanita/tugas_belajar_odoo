@@ -15,7 +15,7 @@
     "category": "Sales",
     "version": "16.0.0.1",
     # any module necessary for this one to work correctly
-    "depends": ["base", "product", "sale", "account", "website"],
+    "depends": ["base", "product", "sale", "account", "website", "website_sale"],
     # always loaded
     "data": [
         "security/ir.model.access.csv",
@@ -37,9 +37,13 @@
         "reports/daily_report_template.xml",
         "wizard/views/rule_komisi_karyawan_view_wizard.xml",
         "views/website/website_inherit_view.xml",
+        "views/website/view_move_form_inherit.xml",
     ],
-    # "account.assets": [
-    # ],
+    "assets": {
+        "web.assets_frontend": [
+            "appschef/static/src/js/penawaran.js",
+        ],
+    },
     # only loaded in demonstration mode
     "demo": [
         "demo/demo.xml",
