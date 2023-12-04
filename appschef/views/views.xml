@@ -12,12 +12,12 @@
 
     <!-- Sub-menu -->
 
-    <menuitem name="Karyawan" id="appschef.submenu_karyawan" parent="appschef.menu_master" action="appschef.action_window_karyawan"/>
-    <menuitem name="Project" id="appschef.submenu_project" parent="appschef.menu_master" action="appschef.action_window_project"/>
-    <menuitem name="Rule Komisi Karyawan" id="appschef.submenu_rule_komisi_karyawan" parent="appschef.menu_master" action="appschef.action_window_rule_komisi_karyawan"/>
-    <menuitem name="History Komisi Karyawan" id="appschef.submenu_history_komisi_karyawan" parent="appschef.menu_master" action="appschef.action_window_history_komisi_karyawan"/>
+    <menuitem name="Karyawan" id="appschef.submenu_karyawan" parent="appschef.menu_master" action="action_window_karyawan"/>
+    <menuitem name="Project" id="appschef.submenu_project" parent="appschef.menu_master" action="action_window_project"/>
+    <menuitem name="Rule Komisi Karyawan" id="appschef.submenu_rule_komisi_karyawan" parent="menu_master" action="appschef.action_window_rule_komisi_karyawan"/>
+    <menuitem name="History Komisi Karyawan" id="appschef.submenu_history_komisi_karyawan" parent="menu_master" action="appschef.action_window_history_komisi_karyawan"/>
 
-    <menuitem name="Daily Report" id="appschef.submenu_daily_report" parent="appschef.menu_report" action="appschef.action_window_report"/>
+    <menuitem name="Daily Report" id="appschef.submenu_daily_report" parent="appschef.menu_report" action="action_window_report"/>
 
   </data>
 </odoo>

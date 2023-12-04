@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="btn_approval" name="Button Approval" inherit_id="account.portal_invoice_page">
+        <xpath expr="//div[@class='o_download_pdf btn-toolbar flex-sm-nowrap']" position="after">
+            <div class="d-grid">
+                <a class="btn btn-primary mb-2" title="Ajukan Penawaran" data-bs-toggle="modal" data-bs-target="#makeAnOfferModal">
+                    <i class="fa fa-fw fa-check-circle"/>
+                    Make an Offer 
+                </a>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="makeAnOfferModal" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Input the Offer</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group row form-field" id="offering-view">
+                                <t t-set="invoice_id" t-value=""/>
+
+                                <t t-set="lines" t-value="request.env['account.move'].sudo().search(
+                                        [
+                                            ('id', '=', invoice.id)
+                                        ]
+                                        ).invoice_line_ids"/>
+                                <t t-set ="sum_subtotal" t-value="sum(l.price_subtotal for l in lines)"/>
+                                <t t-foreach="lines" t-as="line">
+                                    <t t-set="produk" t-value="line.product_id"/>
+                                    <t t-set="subtotal" t-value="line.price_subtotal"/>
+
+                                    <div class="child-view">
+                                        <input class="product_id" type="hidden" name="product_id" t-att-value="produk.id"/>
+                                        <h6>
+                                            <t t-out="produk.name"/>
+                                        </h6>
+                                        <input type="text" class="form-control offering o_website_form_input" name="offering" t-att-value="subtotal"/>
+                                    </div>
+
+                                    <div style="margin-bottom:12px"/>
+                                </t>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="btn_submit_offer" data-bs-dismiss="modal">Submit Offer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>
