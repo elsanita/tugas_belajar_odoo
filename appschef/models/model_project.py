@@ -1,8 +1,10 @@
+# -*- coding: utf-8 -*-
+
 from odoo import models, fields, api
 
 
-class appschef_project(models.Model):
-    _name = "appschef.appschef_project"
+class AppschefProject(models.Model):
+    _name = "project"
     _description = "model for projects"
 
     name = fields.Char()

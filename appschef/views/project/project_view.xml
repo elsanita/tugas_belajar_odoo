@@ -1,0 +1,38 @@
+<odoo>
+    <data>
+        <!-- Tree View -->
+        <record model="ir.ui.view" id="appschef.list_project">
+            <field name="name">List Project</field>
+            <field name="model">project</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="teknologi"/>
+                </tree>
+            </field>
+        </record>
+        <!--  -->
+
+        <!-- Form View -->
+        <record model="ir.ui.view" id="appschef.form_project">
+            <field name="name">Form Project</field>
+            <field name="model">project</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="teknologi"/>
+                                <field name="tipe_project"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!--  -->
+    </data>
+</odoo>

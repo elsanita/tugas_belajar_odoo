@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <!-- Action Window -->
+        <record model="ir.actions.act_window" id="action_window_report">
+            <field name="name">Report</field>
+            <field name="res_model">reports</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!--  -->
+
+        <!-- Action Server -->
+
+        <!--  -->
+    </data>
+</odoo>

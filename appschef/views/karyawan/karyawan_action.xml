@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+
+        <!-- Action Window -->
+
+        <record model="ir.actions.act_window" id="action_window_karyawan">
+            <field name="name">Karyawan</field>
+            <field name="res_model">karyawan</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--  -->
+
+        <!-- Action Server -->
+
+        <!-- <record model="ir.actions.server" id="appschef.action_server">
+            <field name="name">Server</field>
+            <field name="model_id" ref="model_appschef_appschef_karyawan"/>
+            <field name="state">code</field>
+            <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+            </field>
+        </record> -->
+
+        <!--  -->
+    </data>
+</odoo>
