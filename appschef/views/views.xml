@@ -1,177 +1,23 @@
 <odoo>
   <data>
-    <!-- explicit list view definition -->
 
-    <record model="ir.ui.view" id="appschef.list_karyawan">
-      <field name="name">appschef list</field>
-      <field name="model">appschef.appschef_karyawan</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="jabatan"/>
-        </tree>
-      </field>
-    </record>
-
-
-    <record model="ir.ui.view" id="appschef.list_project">
-      <field name="name">List Project</field>
-      <field name="model">appschef.appschef_project</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="teknologi"/>
-        </tree>
-      </field>
-    </record>
-
-
-    <record model="ir.ui.view" id="appschef.list_report">
-      <field name="name">List Report</field>
-      <field name="model">appschef.appschef_reports</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="tanggal"/>
-          <field name="karyawan"/>
-          <!-- <field name="status"/> -->
-        </tree>
-      </field>
-    </record>
-
-    <!-- form view -->
-    <record model="ir.ui.view" id="appschef.form_karyawan">
-      <field name="name">Form Karyawan</field>
-      <field name="model">appschef.appschef_karyawan</field>
-      <field name="arch" type="xml">
-        <form>
-          <sheet>
-            <group>
-              <group>
-                <field name="name"/>
-                <field name="manager"/>
-                <field name="jabatan"/>
-              </group>
-              <group>
-                <field name="jenis_kelamin"/>
-                <field name="tanggal_lahir"/>
-                <field name="project" widget="many2many_tags"/>
-              </group>
-            </group>
-          </sheet>
-        </form>
-      </field>
-    </record>
-
-    <record model="ir.ui.view" id="appschef.form_project">
-      <field name="name">Form Project</field>
-      <field name="model">appschef.appschef_project</field>
-      <field name="arch" type="xml">
-        <form>
-          <sheet>
-            <group>
-              <group>
-                <field name="name"/>
-              </group>
-              <group>
-                <field name="teknologi"/>
-                <field name="tipe_project"/>
-              </group>
-            </group>
-          </sheet>
-        </form>
-      </field>
-    </record>
-
-    <record model="ir.ui.view" id="appschef.form_report">
-      <field name="name">Form Report</field>
-      <field name="model">appschef.appschef_reports</field>
-      <field name="arch" type="xml">
-        <form>
-          <header>
-            <button string="Validate" name="validate_report" type="object" class="oe_highlight" attrs="{'invisible':[('status','=',('valid'))]}"/>
-            <field name="status" widget="statusbar"/>
-          </header>
-          <sheet>
-            <group>
-              <group>
-                <field name="tanggal"/>
-                <!-- <field name="status" attrs="{'readonly':[('status','=','valid')]}"/> -->
-              </group>
-              <group>
-                <field name="karyawan"/>
-              </group>
-            </group>
-            <notebook>
-              <page string="Reports" name="list_report">
-                <field name="projects" widget="one2many">
-                  <tree default_order="projects asc"  editable="bottom">
-                    <field name="project_name"/>
-                    <field name="keterangan"/>
-                  </tree>
-                </field>
-              </page>
-            </notebook>
-          </sheet>
-        </form>
-      </field>
-    </record>
-
-    <!-- actions opening views on models -->
-
-    <record model="ir.actions.act_window" id="appschef.action_window_karyawan">
-      <field name="name">Karyawan</field>
-      <field name="res_model">appschef.appschef_karyawan</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-
-    <record model="ir.actions.act_window" id="appschef.action_window_project">
-      <field name="name">Project</field>
-      <field name="res_model">appschef.appschef_project</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-
-    <record model="ir.actions.act_window" id="appschef.action_window_report">
-      <field name="name">Report</field>
-      <field name="res_model">appschef.appschef_reports</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-
-
-    <!-- server action to the one above -->
-
-    <!-- <record model="ir.actions.server" id="appschef.action_server">
-      <field name="name">Server</field>
-      <field name="model_id" ref="model_appschef_appschef_karyawan"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record> -->
-
-
-    <!-- Top menu item -->
+    <!-- Top Menu Item -->
 
     <menuitem name="Appschef" id="appschef.menu_root"/>
 
-    <!-- menu categories -->
+    <!-- Menu Categories -->
 
-    <menuitem name="Report" id="appschef.menu_report" parent="appschef.menu_root" sequence="1"/>
-    <menuitem name="Master" id="appschef.menu_master" parent="appschef.menu_root" sequence="2"/>
-    <!-- <menuitem name="Menu 2" id="appschef.menu_2" parent="appschef.menu_root"/> -->
+    <menuitem name="Master" id="appschef.menu_master" parent="appschef.menu_root" sequence="1"/>
+    <menuitem name="Report" id="appschef.menu_report" parent="appschef.menu_root" sequence="2"/>
 
-    <!-- actions -->
+    <!-- Sub-menu -->
 
-    <menuitem name="Karyawan" id="appschef.submenu_karyawan" parent="appschef.menu_master" action="appschef.action_window_karyawan"/>
+    <menuitem name="Karyawan" id="appschef.submenu_karyawan" parent="appschef.menu_master" action="action_window_karyawan"/>
+    <menuitem name="Project" id="appschef.submenu_project" parent="appschef.menu_master" action="action_window_project"/>
+    <menuitem name="Rule Komisi Karyawan" id="appschef.submenu_rule_komisi_karyawan" parent="menu_master" action="appschef.action_window_rule_komisi_karyawan"/>
+    <menuitem name="History Komisi Karyawan" id="appschef.submenu_history_komisi_karyawan" parent="menu_master" action="appschef.action_window_history_komisi_karyawan"/>
 
-    <menuitem name="Project" id="appschef.submenu_project" parent="appschef.menu_master" action="appschef.action_window_project"/>
-
-    <menuitem name="Daily Report" id="appschef.submenu_daily_report" parent="appschef.menu_report" action="appschef.action_window_report"/>
-
-    <!-- <menuitem name="Server to list" id="appschef" parent="appschef.menu_2" action="appschef.action_server"/> -->
+    <menuitem name="Daily Report" id="appschef.submenu_daily_report" parent="appschef.menu_report" action="action_window_report"/>
 
   </data>
 </odoo>
